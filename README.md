@@ -2,9 +2,9 @@
 
 ## Directory
 
-- static/ frontend files
-- data/ data
-- lib / backend lib files
+- [static/](static) frontend files
+- [data/](data) data
+- [lib/](lib) backend lib files
 
 ## Usage
 
