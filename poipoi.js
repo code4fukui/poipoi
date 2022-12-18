@@ -15,9 +15,11 @@ serveAPI("/api/", async (param, req, path, conninfo) => {
     const name = dt.toString().replace(/:/g, "").replace(/\+/g, "P") + ".jpg";
     const item = { dt: dt.toString(), image: name, name: param.text };
     items.data.push(item);
-    await Deno.writeFile("data/image/" + name, param.img);
+    await Deno.writeFile("../static/image/" + name, param.img);
     await items.write();
     return "ok";
+  } else if (path == "/api/timeline") {
+    return items.data;
   }
   return "poipoi";
 });
