@@ -8,7 +8,7 @@ export const showMe = async (main) => {
     elmDiv.setAttribute("style", "margin: 2em 0em;");
     {
         const elmH2 = document.createElement("h2");
-        elmH2.innerText = "🪙あなたのpoipoiポイント";
+        elmH2.innerText = "🪙あなたの ポイ活 ポイント";
         elmDiv.appendChild(elmH2);
 
         const elmDiv_Shunyu = document.createElement("div");
