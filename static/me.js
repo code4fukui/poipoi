@@ -1,6 +1,3 @@
-import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
-import { ArrayUtil } from "https://js.sabae.cc/ArrayUtil.js";
-
 export const showMe = async (main) => {
     main.innerHTML = "";
     main.className = "";
@@ -18,4 +15,10 @@ export const showMe = async (main) => {
         elmDiv.appendChild(elmDiv_Shunyu);
     }
     main.appendChild(elmDiv);
+
+    const video = document.createElement("video");
+    //video.src = "movie/cm-poipoi-vertical.mp4";
+    video.src = "movie/cm-poipoi.mp4";
+    video.controls = true;
+    main.appendChild(video);
 };

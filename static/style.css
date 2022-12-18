@@ -1,6 +1,6 @@
 body {
   margin: 0px;
-  padding: 0px 0px 100px 0px;
+  padding: 0px 0px 30vh 0px;
 }
 .home_list {
   margin: 0px;
@@ -29,4 +29,7 @@ body {
 .upload img {
   width: 90vw;
   display: block;
+}
+video {
+  width: 100vw;
 }
