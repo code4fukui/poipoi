@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>poipoi.lif - VR180</title>
+    <script src="https://code4fukui.github.io/aframe/dist/aframe-master.min.js"></script>
+<script src="https://code4fukui.github.io/aframe-stereo-component/dist/aframe-stereo-component.min.js"></script>
+</head>
+<body>
+
+<a-scene renderer="antialias: true">
+    <video id="video" src="./cm-poipoi-vr180.mp4" loop></video></a-assets>
+
+<!-- Camera -->
+<!-- <a-entity camera look-controls position="0 0 0" stereocam="eye:left;"></a-entity> -->
+<a-camera position="0 0 10" cursor-visible="false" stereocam="eye:left;"></a-camera>
+
+<!-- Sky sphere -->
+<!-- native sphere, will render on 'left' eye, and will take only the first half (top) of the video for projection -->
+<a-entity
+    geometry="primitive: sphere; radius: 100; segmentsWidth: 64; segmentsHeight: 64;"
+    material="shader: flat; src: #video;"
+    scale="-1 1 1" stereo="eye:left; split: vertical">
+</a-entity>
+
+<!-- native sphere, will render on 'right' eye, and will take only the second half (bottom) of the video for projection -->
+<a-entity
+    geometry="primitive: sphere; radius: 100; segmentsWidth: 64; segmentsHeight: 64;"
+    material="shader: flat; src: #video;"
+    scale="-1 1 1" stereo="eye:right; split: vertical">
+</a-entity>
+
+</a-scene>
+
+</body>
+</html>

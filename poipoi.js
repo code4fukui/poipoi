@@ -13,9 +13,10 @@ serveAPI("/api/", async (param, req, path, conninfo) => {
   } else if (path == "/api/upload") {
     const dt = new DateTime();
     const name = dt.toString().replace(/:/g, "").replace(/\+/g, "P") + ".jpg";
-    const item = { dt: dt.toString(), image: name, name: param.text };
+    const muzu = Math.random() < .2 ? 2 : 0;
+    const item = { dt: dt.toString(), image: name, name: param.text, muzu };
     items.data.push(item);
-    await Deno.writeFile("../static/image/" + name, param.img);
+    await Deno.writeFile("./static/image/" + name, param.img);
     await items.write();
     return "ok";
   } else if (path == "/api/timeline") {
