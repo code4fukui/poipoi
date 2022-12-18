@@ -14,7 +14,7 @@ serveAPI("/api/", async (param, req, path, conninfo) => {
     const dt = new DateTime();
     const name = dt.toString().replace(/:/g, "").replace(/\+/g, "P") + ".jpg";
     const muzu = Math.random() < .2 ? 2 : 0;
-    const item = { dt: dt.toString(), image: name, name: param.text, muzu };
+    const item = { dt: dt.toString(), image: name, name: param.text, bunrui: param.bunrui, muzu };
     items.data.push(item);
     await Deno.writeFile("./static/image/" + name, param.img);
     await items.write();

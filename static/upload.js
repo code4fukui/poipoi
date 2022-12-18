@@ -19,6 +19,9 @@ export const showUpload = async (main) => {
   const inpname = document.createElement("input");
   inpname.placeholder = "おなまえ";
   main.appendChild(inpname);
+  const inpsepa = document.createElement("input");
+  inpsepa.placeholder = "分類";
+  main.appendChild(inpsepa);
   const btn = document.createElement("button");
   btn.textContent = "アップロード";
   btn.disabled = true;
@@ -39,9 +42,13 @@ export const showUpload = async (main) => {
           alert("おなまえを入力してからアップロードしてください");
           return;
         }
+        if (!inpsepa.value) {
+          alert("分類を入力してからアップロードしてください");
+          return;
+        }
         const buf = await imgutil.getArrayBufferFromImage(img, "image/jpeg", jpgquarity);
         const bimg = new Uint8Array(buf);
-        const res = await uploadItem(bimg, inpname.value);
+        const res = await uploadItem(bimg, inpname.value, inpsepa.value);
         if (res == "ok") {
           alert("アップロード成功！");
         } else {
