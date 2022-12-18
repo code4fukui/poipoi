@@ -1,5 +1,5 @@
 import { imgutil } from "https://js.sabae.cc/imgutil.js";
-import { uploadItem } from "./api.js";
+import { uploadItem, fetchCategories } from "./api.js";
 
 const maxwidth = 1024;
 const maxsize = 1024 * 1024;
@@ -19,9 +19,16 @@ export const showUpload = async (main) => {
   const inpname = document.createElement("input");
   inpname.placeholder = "おなまえ";
   main.appendChild(inpname);
-  const inpsepa = document.createElement("input");
-  inpsepa.placeholder = "分類";
+
+  const cates = await fetchCategories();
+  const inpsepa = document.createElement("select");
+  for (const cate of cates) {
+    const opt = document.createElement("option");
+    opt.textContent = cate;
+    inpsepa.appendChild(opt);
+  }
   main.appendChild(inpsepa);
+  
   const btn = document.createElement("button");
   btn.textContent = "アップロード";
   btn.disabled = true;

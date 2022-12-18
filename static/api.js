@@ -10,3 +10,8 @@ export const fetchItems = async () => {
   const res = await fetchJSON("/api/timeline");
   return res;
 };
+
+export const fetchCategories = async () => {
+  const res = await fetchJSON("/api/categories");
+  return res;
+};
