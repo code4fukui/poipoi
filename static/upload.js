@@ -6,6 +6,9 @@ const maxsize = 1024 * 1024;
 const jpgquarity = 0.9;
 
 export const showUpload = async (main) => {
+  main.innerHTML = "";
+  main.className = "upload";
+
   const div = document.createElement("div");
   div.textContent = "写真選択";
   main.appendChild(div);
@@ -38,7 +41,6 @@ export const showUpload = async (main) => {
         }
         const buf = await imgutil.getArrayBufferFromImage(img, "image/jpeg", jpgquarity);
         const bimg = new Uint8Array(buf);
-        alert(bimg.length);
         const res = await uploadItem(bimg, inpname.value);
         if (res == "ok") {
           alert("アップロード成功！");

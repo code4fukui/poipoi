@@ -5,6 +5,7 @@
     import { showSeparation } from "./separate.js";
     import { showCity } from "./city.js";
     import { showMe } from "./me.js";
+    import { showUpload } from "./upload.js";
 
     elmMenuHome.onclick = async function(){
         showHome(elmMain);
@@ -15,6 +16,7 @@
     };
     
     elmMenuPoi.onclick = async function(){
+        showUpload(elmMain);
     };
     
     elmMenuCity.onclick = async function(){
@@ -29,34 +31,7 @@
     
     elmMenuHome.onclick();
 </script>
-<style>
-body{
-    margin: 0px;
-    padding: 0px;
-}
-.home_list{
-    margin: 0px;
-    padding: 0px;
-}
-.home_list > li{
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    width: 100vw;
-    text-align: center;
-}
-.photo{
-    width: 90vw;
-}
-.menu{
-    position: fixed;
-    bottom: 0px;
-    text-align: center;
-    width: 100vw;
-    border-top: 3px double;
-    background-color: floralwhite;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head><body>
 <h1>poipoi.life</h1>
 <div id="elmMain"></div>

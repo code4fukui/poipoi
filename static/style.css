@@ -1,0 +1,32 @@
+body {
+  margin: 0px;
+  padding: 0px 0px 100px 0px;
+}
+.home_list {
+  margin: 0px;
+  padding: 0px;
+}
+.home_list > li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  text-align: center;
+}
+.photo {
+  width: 90vw;
+}
+.menu {
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  width: 100vw;
+  border-top: 3px double;
+  background-color: floralwhite;
+}
+
+/* upload */
+.upload img {
+  width: 90vw;
+  display: block;
+}
