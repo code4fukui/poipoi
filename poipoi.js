@@ -12,7 +12,7 @@ serveAPI("/api/", async (param, req, path, conninfo) => {
     return data;
   } else if (path == "/api/upload") {
     const dt = new DateTime();
-    const name = dt.toString().replace(/:/g, "").replace(/+/g, "P") + ".jpg";
+    const name = dt.toString().replace(/:/g, "").replace(/\+/g, "P") + ".jpg";
     const item = { dt: dt.toString(), image: name, name: param.text };
     items.data.push(item);
     await Deno.writeFile("data/image/" + name, param.img);
