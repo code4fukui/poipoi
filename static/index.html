@@ -1,6 +1,8 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
 <title>poipoi.life</title>
 <script type="module">
+    import { showSeparation } from "./separate.js";
+
     elmMenuHome.onclick = async function(){
         const photos = [
             "IMG_8933.jpg",
@@ -47,6 +49,7 @@
     };
 
     elmMenuSearch.onclick = async function(){
+        showSeparation(elmMain);
     };
     
     elmMenuPoi.onclick = async function(){
