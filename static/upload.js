@@ -1,11 +1,18 @@
 import { imgutil } from "https://js.sabae.cc/imgutil.js";
 import { uploadItem, fetchCategories } from "./api.js";
+import { rnd } from "https://js.sabae.cc/rnd.js";
 
 const maxwidth = 1024;
 const maxsize = 1024 * 1024;
 const jpgquarity = 0.9;
 
-export const showUpload = async (main) => {
+const sounds = [
+  "./sound/poipoi-mai.mp3",
+  "./sound/poipoi-mei.mp3",
+  "./sound/poipoi-kako.mp3",
+];
+
+export const showUpload = async (main, ret) => {
   main.innerHTML = "";
   main.className = "upload";
 
@@ -28,11 +35,15 @@ export const showUpload = async (main) => {
     inpsepa.appendChild(opt);
   }
   main.appendChild(inpsepa);
-  
+
   const btn = document.createElement("button");
   btn.textContent = "アップロード";
   btn.disabled = true;
   main.appendChild(btn);
+
+  const audio = new Audio();
+  const a = sounds[rnd(sounds.length)];
+  audio.src = a;
 
   div.onclick = () => {
     inp.click();
@@ -57,7 +68,9 @@ export const showUpload = async (main) => {
         const bimg = new Uint8Array(buf);
         const res = await uploadItem(bimg, inpname.value, inpsepa.value);
         if (res == "ok") {
+          audio.play();
           alert("アップロード成功！");
+          ret(main);
         } else {
           alert("おや、なにかトラブル!? " + res);
         }
