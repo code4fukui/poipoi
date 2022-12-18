@@ -1,9 +1,85 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
 <title>poipoi.life</title>
+<script type="module">
+    elmMenuHome.onclick = async function(){
+        const photos = [
+            "IMG_8933.jpg",
+            "IMG_8934.jpg",
+            "IMG_8935.jpg",
+            "IMG_8936.jpg",
+            "IMG_8937.jpg",
+            "IMG_8938.jpg",
+            "IMG_8940.jpg",
+            "IMG_8941.jpg",
+            "IMG_8942.jpg",
+            "IMG_8943.jpg",
+            "IMG_8944.jpg",
+            "IMG_8945.jpg",
+            "IMG_8947.jpg",
+            "IMG_8948.jpg",
+            "IMG_8949.jpg",
+            "IMG_8950.jpg",
+            "IMG_8951.jpg",
+            "IMG_8952.jpg",
+            "IMG_8953.jpg",
+            "IMG_8954.jpg",
+            "IMG_8955.jpg",
+            "IMG_8956.jpg",
+            "IMG_8957.jpg",
+            "IMG_8958.jpg",
+            "IMG_8959.jpg",
+        ];
+
+        const elmUl = document.createElement("ul");
+        elmUl.setAttribute("class", "home_list");
+
+        for(const photo of photos){
+            const elmLi = document.createElement("li");
+            elmUl.appendChild(elmLi);
+
+            const elmImg = document.createElement("img");
+            elmImg.setAttribute("class", "photo");
+            elmImg.setAttribute("src", `photo/${photo}`);
+            elmLi.appendChild(elmImg);
+        }
+
+        elmMain.appendChild(elmUl);
+    };
+
+    elmMenuSearch.onclick = async function(){
+    };
+    
+    elmMenuPoi.onclick = async function(){
+    };
+    
+    elmMenuCity.onclick = async function(){
+    };
+    
+    elmMenuMe.onclick = async function(){
+    };
+    
+
+    
+    elmMenuHome.onclick();
+</script>
 <style>
 body{
     margin: 0px;
     padding: 0px;
+}
+.home_list{
+    margin: 0px;
+    padding: 0px;
+}
+.home_list > li{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    text-align: center;
+}
+.photo{
+    width: 90vw;
 }
 .menu{
     position: fixed;
@@ -11,16 +87,17 @@ body{
     text-align: center;
     width: 100vw;
     border-top: 3px double;
+    background-color: floralwhite;
 }
 </style>
 </head><body>
 <h1>poipoi.life</h1>
-comming soon
+<div id="elmMain"></div>
 <div class="menu">
-    <a href="#"><img src="icon/home.png" style="height:16vw;"></a>
-    <a href="#"><img src="icon/search.png" style="height:16vw;"></a>
-    <a href="#"><img src="icon/poi.png" style="height:16vw;"></a>
-    <a href="#"><img src="icon/city.png" style="height:16vw;"></a>
-    <a href="#"><img src="icon/me.png" style="height:16vw;"></a>
+    <a id="elmMenuHome"   href="#"><img src="icon/home.png" style="height:16vw;"></a>
+    <a id="elmMenuSearch" href="#"><img src="icon/search.png" style="height:16vw;"></a>
+    <a id="elmMenuPoi"    href="#"><img src="icon/poi.png" style="height:16vw;"></a>
+    <a id="elmMenuCity"   href="#"><img src="icon/city.png" style="height:16vw;"></a>
+    <a id="elmMenuMe"     href="#"><img src="icon/me.png" style="height:16vw;"></a>
 </div>
 </body></html>
