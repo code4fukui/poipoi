@@ -3,6 +3,7 @@ import { ArrayUtil } from "https://js.sabae.cc/ArrayUtil.js";
 
 export const showCity = async (main) => {
     main.innerHTML = "";
+    main.className = "";
 
     const elmDiv = document.createElement("div");
     elmDiv.setAttribute("style", "margin: 2em 0em;");

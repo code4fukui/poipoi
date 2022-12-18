@@ -3,6 +3,7 @@ import { ArrayUtil } from "https://js.sabae.cc/ArrayUtil.js";
 
 export const showHome = async (main) => {
     main.innerHTML = "";
+    main.className = "";
 
     const photos = [
         { file: "IMG_8933.jpg", muzu: 2, },

@@ -3,6 +3,8 @@ import { ArrayUtil } from "https://js.sabae.cc/ArrayUtil.js";
 
 export const showSeparation = async (main) => {
   main.innerHTML = "";
+  main.className = "";
+
   const h1 = document.createElement("h1");
   h1.textContent = "家庭ごみの分別";
   main.appendChild(h1);
