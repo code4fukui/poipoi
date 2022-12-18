@@ -3,6 +3,7 @@
 <script type="module">
     import { showHome } from "./home.js";
     import { showSeparation } from "./separate.js";
+    import { showCity } from "./city.js";
 
     elmMenuHome.onclick = async function(){
         showHome(elmMain);
@@ -16,6 +17,7 @@
     };
     
     elmMenuCity.onclick = async function(){
+        showCity(elmMain);
     };
     
     elmMenuMe.onclick = async function(){
