@@ -5,31 +5,31 @@ export const showHome = async (main) => {
     main.innerHTML = "";
 
     const photos = [
-        "IMG_8933.jpg",
-        "IMG_8934.jpg",
-        "IMG_8935.jpg",
-        "IMG_8936.jpg",
-        "IMG_8937.jpg",
-        "IMG_8938.jpg",
-        "IMG_8940.jpg",
-        "IMG_8941.jpg",
-        "IMG_8942.jpg",
-        "IMG_8943.jpg",
-        "IMG_8944.jpg",
-        "IMG_8945.jpg",
-        "IMG_8947.jpg",
-        "IMG_8948.jpg",
-        "IMG_8949.jpg",
-        "IMG_8950.jpg",
-        "IMG_8951.jpg",
-        "IMG_8952.jpg",
-        "IMG_8953.jpg",
-        "IMG_8954.jpg",
-        "IMG_8955.jpg",
-        "IMG_8956.jpg",
-        "IMG_8957.jpg",
-        "IMG_8958.jpg",
-        "IMG_8959.jpg",
+        { file: "IMG_8933.jpg", muzu: 2, },
+        { file: "IMG_8934.jpg", muzu: 0, },
+        { file: "IMG_8935.jpg", muzu: 2, },
+        { file: "IMG_8936.jpg", muzu: 0, },
+        { file: "IMG_8937.jpg", muzu: 0, },
+        { file: "IMG_8938.jpg", muzu: 0, },
+        { file: "IMG_8940.jpg", muzu: 0, },
+        { file: "IMG_8941.jpg", muzu: 0, },
+        { file: "IMG_8942.jpg", muzu: 0, },
+        { file: "IMG_8943.jpg", muzu: 0, },
+        { file: "IMG_8944.jpg", muzu: 0, },
+        { file: "IMG_8945.jpg", muzu: 0, },
+        { file: "IMG_8947.jpg", muzu: 0, },
+        { file: "IMG_8948.jpg", muzu: 0, },
+        { file: "IMG_8949.jpg", muzu: 0, },
+        { file: "IMG_8950.jpg", muzu: 0, },
+        { file: "IMG_8951.jpg", muzu: 0, },
+        { file: "IMG_8952.jpg", muzu: 0, },
+        { file: "IMG_8953.jpg", muzu: 0, },
+        { file: "IMG_8954.jpg", muzu: 0, },
+        { file: "IMG_8955.jpg", muzu: 0, },
+        { file: "IMG_8956.jpg", muzu: 0, },
+        { file: "IMG_8957.jpg", muzu: 0, },
+        { file: "IMG_8958.jpg", muzu: 0, },
+        { file: "IMG_8959.jpg", muzu: 0, },
     ];
 
     const elmUl = document.createElement("ul");
@@ -39,11 +39,18 @@ export const showHome = async (main) => {
         const elmLi = document.createElement("li");
         elmUl.appendChild(elmLi);
 
+        if(photo.muzu === 2){
+            const elmImgMuzu = document.createElement("img");
+            elmImgMuzu.setAttribute("style", "width:35vw; text-align:right; position:absolute; right: 0vw; ");
+            elmImgMuzu.setAttribute("src", "photo/gmuzu.png");
+            elmLi.appendChild(elmImgMuzu);
+        }
+
         const elmImg = document.createElement("img");
         elmImg.setAttribute("class", "photo");
-        elmImg.setAttribute("src", `photo/${photo}`);
+        elmImg.setAttribute("src", `photo/${photo.file}`);
         elmLi.appendChild(elmImg);
-    }
+}
 
     main.appendChild(elmUl);
 };
