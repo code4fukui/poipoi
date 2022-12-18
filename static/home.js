@@ -1,4 +1,4 @@
-import { fetchItems } from "./api.js";
+import { fetchItems, fetchCategories } from "./api.js";
 
 export const showHome = async (main) => {
     main.innerHTML = "";
@@ -21,11 +21,55 @@ export const showHome = async (main) => {
             elmLi.appendChild(elmImgMuzu);
         }
 
+        const elmA = document.createElement("a");
+        elmA.onclick = function(){ showQuiz(main, photo); };
+        elmLi.appendChild(elmA);
+
         const elmImg = document.createElement("img");
         elmImg.setAttribute("class", "photo");
         elmImg.setAttribute("src", `image/${photo.image}`);
-        elmLi.appendChild(elmImg);
+        elmA.appendChild(elmImg);
 }
 
     main.appendChild(elmUl);
 };
+
+
+
+async function showQuiz(main, photo){
+    main.innerHTML = "";
+    main.className = "home";
+
+    const h1 = document.createElement("h1");
+    h1.textContent = "分別クイズ!!";
+    main.appendChild(h1);
+  
+    const elmP = document.createElement("p");
+    elmP.textContent = "この\"ポイ\"の分類は？";
+    main.appendChild(elmP);
+
+    const elmImg = document.createElement("img");
+    elmImg.setAttribute("class", "photo");
+    elmImg.setAttribute("src", `image/${photo.image}`);
+    main.appendChild(elmImg);
+
+    const cates = await fetchCategories();
+    const inpsepa = document.createElement("select");
+    for (const cate of cates) {
+      const opt = document.createElement("option");
+      opt.textContent = cate;
+      inpsepa.appendChild(opt);
+    }
+    main.appendChild(inpsepa);
+  
+    const btn = document.createElement("button");
+    btn.textContent = "ポイ！";
+    btn.onclick = async function(){
+        if(photo.bunrui === inpsepa.value){
+            alert("分類ありがとう〜〜〜");
+        }else{
+            alert("捨てないで！！");
+        }
+    };
+    main.appendChild(btn);
+  }
