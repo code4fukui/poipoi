@@ -1,6 +1,7 @@
 import { imgutil } from "https://js.sabae.cc/imgutil.js";
 import { uploadItem, fetchCategories } from "./api.js";
 import { rnd } from "https://js.sabae.cc/rnd.js";
+import { blessing } from "./blessing.js";
 
 const maxwidth = 1024;
 const maxsize = 1024 * 1024;
@@ -69,7 +70,8 @@ export const showUpload = async (main, ret) => {
         const res = await uploadItem(bimg, inpname.value, inpsepa.value);
         if (res == "ok") {
           audio.play();
-          alert("アップロード成功！");
+          blessing();
+          //alert("アップロード成功！");
           ret(main);
         } else {
           alert("おや、なにかトラブル!? " + res);
