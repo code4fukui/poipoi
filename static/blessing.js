@@ -45,4 +45,6 @@ export const blessing = () => {
   };
   setTimeout(star, 600);
   setTimeout(star, 1000);
+  setTimeout(star, 1600);
+  setTimeout(star, 2000);
 };
